@@ -1,7 +1,8 @@
 import React from 'react';
-import logo  from '../assets/images/logo.svg';
-import main from '../assets/images/main.svg';
+import main from '../assets/images/main-alternative.svg';
 import styled from  'styled-components'
+import Logo from '../components/Logo' 
+import {Link} from 'react-router-dom';
 
 
 
@@ -12,7 +13,8 @@ const Landing = () => {
     return(
         <Wrapper>
       <nav>
-        <img src={logo} alt="jobify" className="logo"/>
+        <Logo />
+     
       </nav>
 
       <div className="container page">
@@ -23,7 +25,7 @@ const Landing = () => {
           
         </p>
 
-        <button className="btn btn-hero">Login/Register</button>
+        <Link to='/register' className="btn btn-hero">Login/Register</Link>
         </div>
 
     

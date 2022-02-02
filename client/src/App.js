@@ -1,6 +1,8 @@
 
-import Landing from './pages/Landing';
+
 import styled from 'styled-components';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import{Landing,Dashboard,Register,Error} from './pages';
 
 
 
@@ -26,9 +28,20 @@ const ButtonSecond = styled.button`
 
 function App() {
   return (
-    <div className="App">
-     <Landing />
-    </div>
+    <BrowserRouter>
+    <nav >
+      <Link to="/">Dashboard</Link>
+      <Link to="/">Register</Link>
+      <Link to="/landing">Landing</Link>
+    </nav>
+    <Routes>
+     <Route path="/"  element={<Dashboard />}/>
+     <Route path="/register"  element={<Register/>}/>
+     <Route path="/landing"  element={<Landing/>}/>
+     <Route path="*"  element={<Error/>}/>
+
+     </Routes>
+    </BrowserRouter>
   );
 }
 

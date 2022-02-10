@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
 import 'normalize.css'
+import { AppProvider } from './context/appContext';
 
 
 
@@ -10,7 +11,9 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
+    <AppProvider>
     <App />
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,13 +1,13 @@
 import {useEffect,useState} from 'react';
 import Wrapper from '../wrappers/RegisterPage';
 import {Logo,FormRow,Alert} from '../components/index';
+import { useAppContext } from '../context/appContext';
 
 const intitialState = {
     name:'',
     email:'',
     password:'',
     isMember:'true',
-    showAlert:true
 }
 
 const Register = () => {
@@ -16,6 +16,9 @@ const Register = () => {
     const [ values, setValues] = useState(intitialState);
 
     // global state and useNavigate
+
+
+    const {isLoading,showAlert} = useAppContext()
 
 
     const toggleMember = () => {
@@ -45,6 +48,7 @@ const Register = () => {
          <form className="form" onSubmit={onSubmit}>
               <Logo />
               <h3>{!values.isMember ? "Login": "Register" }</h3>
+              {showAlert && <Alert />}
 
                {values.isMember && (
 

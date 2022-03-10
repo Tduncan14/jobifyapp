@@ -3,6 +3,7 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleWare from './middleware/errorhandler.js';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
+import authRouter from './controller/authController.js';
 
 dotenv.config()
 
@@ -21,11 +22,17 @@ const app = express();
 
 //middleware
 
+app.use(express.json())
+
+
 app.get('/',(req,res)=>{
    
     res.send('hello')
 })
 
+// midd.e
+
+app.use('/api/v1/auth',authRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleWare)
 

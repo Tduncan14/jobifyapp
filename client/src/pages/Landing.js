@@ -13,13 +13,13 @@ const Landing = () => {
     return(
         <Wrapper>
       <nav>
-        <Logo />
+        {/* <Logo /> */}
      
       </nav>
 
       <div className="container page">
         <div className="info">
-          <h1>Job<span>Tracking</span> App</h1>
+          <h1>Job<span>Finder</span> App</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi debitis velit aliquid error vitae eligendi delectus maxime soluta est labore beatae molestias repudiandae provident et quas nemo, minima vel consectetur.
           

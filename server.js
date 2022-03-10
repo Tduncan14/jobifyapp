@@ -1,11 +1,21 @@
 import express from 'express';
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleWare from './middleware/errorhandler.js';
+import dotenv from 'dotenv'
+import mongoose from 'mongoose';
+
+dotenv.config()
+
+
+
 
 
 
 
 const app = express();
+
+ mongoose.connect(process.env.URI)
+ .then(() => console.log('connected to the database'));
 
 
 

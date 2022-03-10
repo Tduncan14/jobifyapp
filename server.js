@@ -1,5 +1,6 @@
 import express from 'express';
 import notFoundMiddleware from './middleware/not-found.js';
+import errorHandlerMiddleWare from './middleware/errorhandler.js';
 
 
 
@@ -11,10 +12,12 @@ const app = express();
 //middleware
 
 app.get('/',(req,res)=>{
+   
     res.send('hello')
 })
 
-app.use(notFoundMiddleware)
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleWare)
 
 
 

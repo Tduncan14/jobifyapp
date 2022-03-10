@@ -3,7 +3,9 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleWare from './middleware/errorhandler.js';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
-import authRouter from './controller/authController.js';
+import authRoutes from'./routes/authRoutes.js';
+import jobRoutes  from './routes/jobRoutes.js';
+
 
 dotenv.config()
 
@@ -32,7 +34,8 @@ app.get('/',(req,res)=>{
 
 // midd.e
 
-app.use('/api/v1/auth',authRouter);
+app.use('/api/v1/auth',authRoutes);
+app.use('/api/v1/jobs',jobRoutes);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleWare)
 

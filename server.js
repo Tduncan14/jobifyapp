@@ -8,6 +8,7 @@ import jobRoutes  from './routes/jobRoutes.js';
 
 
 dotenv.config()
+import 'express-async-errors';
 
 
 

@@ -1,8 +1,15 @@
-
+import UserSchema from '../models/User.js';
 
 const register =  async (req,res) => {
 
-    res.status(200).send('register')
+
+
+
+        const user = await UserSchema.create(req.body);
+        res.status(201).json(user)
+
+
+  
 }
 
 

@@ -2,7 +2,7 @@
 
 const register =  async (req,res) => {
 
-    res.send('register')
+    res.status(200).send('register')
 }
 
 

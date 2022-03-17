@@ -3,12 +3,15 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleWare from './middleware/errorhandler.js';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
+import 'express-async-errors';
 import authRoutes from'./routes/authRoutes.js';
 import jobRoutes  from './routes/jobRoutes.js';
 
 
+
 dotenv.config()
-import 'express-async-errors';
+
+
 
 
 

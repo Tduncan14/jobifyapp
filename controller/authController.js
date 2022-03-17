@@ -1,4 +1,5 @@
 import UserSchema from '../models/User.js';
+import { StatusCodes } from 'http-status-codes';
 
 const register =  async (req,res) => {
 
@@ -6,7 +7,7 @@ const register =  async (req,res) => {
 
 
         const user = await UserSchema.create(req.body);
-        res.status(201).json(user)
+        res.status(StatusCodes.CREATED).json({user})
 
 
   

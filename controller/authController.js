@@ -1,21 +1,8 @@
 import UserSchema from '../models/User.js';
 import { StatusCodes } from 'http-status-codes';
+import { BadRequestError,NotFoundError } from '../error/index.js';
 
 
-
-class  CustomAPIError extends Error {
-     constructor(message){
-         super(message)
-
-
-         this.statusCode = StatusCodes.BAD_REQUEST;
-
-          
-
-
-
-     }
-}
 
 
 
@@ -27,7 +14,7 @@ const register =  async (req,res) => {
 
 
       if(!name || !email || !password){
-          throw new Error('please provide all values')
+          throw new BadRequestError('please provide all values')
       }
 
 

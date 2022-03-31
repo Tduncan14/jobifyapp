@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import 'express-async-errors';
 import authRoutes from'./routes/authRoutes.js';
 import jobRoutes  from './routes/jobRoutes.js';
+import cors from 'cors';
 
 
 
@@ -14,12 +15,9 @@ dotenv.config()
 
 
 
-
-
-
-
-
 const app = express();
+
+
 
  mongoose.connect(process.env.URI)
  .then(() => console.log('connected to the database'));
@@ -29,11 +27,13 @@ const app = express();
 //middleware
 
 app.use(express.json())
+app.use(cors())
 
 
-app.get('/',(req,res)=>{
+
+app.get('/api/v1',(req,res)=>{
    
-    res.send('hello')
+    res.json({msg:'welcome'})
 })
 
 // midd.e

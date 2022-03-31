@@ -14,6 +14,9 @@ const register =  async (req,res) => {
 
 
     //   find email
+    if(!name || !email || !password){
+        throw new BadRequestError('please provide all values')
+    }
 
 
     const userAlreadyExist = await UserSchema.findOne({email});
@@ -24,14 +27,17 @@ const register =  async (req,res) => {
     }
 
 
-      if(!name || !email || !password){
-          throw new BadRequestError('please provide all values')
-      }
-
-
-
         const user = await UserSchema.create(req.body);
-        res.status(StatusCodes.CREATED).json({user})
+        const token = user.createJWT()
+        res.status(StatusCodes.CREATED).json({
+            user:{
+                email:user.email,
+                lastName:user.lastName,
+                location:user.location,
+                name:user.name
+
+            }
+            ,token})
 
 
   
